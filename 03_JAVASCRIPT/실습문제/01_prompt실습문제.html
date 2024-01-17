@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>학생정보 입력</title>
+    <style>
+        .table{
+            border: 1px solid black;
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head> 
+
+<body>
+    <h1> 자동 테이블 만들기 </h1>
+    <h5>힌트 : 반복문은 자바랑 같습니다. 다만! 변수만 var 데이터형이라는걸 기억해주세요 <br>
+       
+    </h5>
+    
+    <button onclick="table_make();">테이블 생성</button>
+
+    <script>
+        function table_make() {
+
+            var row = window.prompt("행 개수를 입력하세요.")
+            var col = window.prompt("열 개수를 입력하세요.")
+
+            document.write("<table border='1px;'>")
+            for (var i = 0; i < row; i++) {
+                document.write("<tr height='50px'>");
+                for (var j = 0; j < col; j++) {
+                    document.write("<td width='50px'>");
+                }
+            }
+            document.write("</td>")
+            document.write("</tr>")
+            document.write("</table>")
+        }
+    </script>
+
+
+    <h1> 행 열을 각각 입력받아서 새 화면에 출력하기</h1>
+    
+
+<button onclick="table_make();">테이블 생성</button>
+
+<script>
+    function table_make() {
+
+        var row = window.prompt("행 개수를 입력하세요.")
+        var col = window.prompt("열 개수를 입력하세요.")
+
+        var count = 1;
+        for(var i = 0; i < row.length; i++){
+            console.log(row[i].length);
+            for(var j = 0; j < col.length; j++){
+
+            }
+        }
+
+        document.write("<table border='1px;'>")
+        for (var i = 0; i < row; i++) {
+            document.write("<tr height='50px'>");
+            for (var j = 0; j < col; j++) {
+                document.write("<td width='50px'>");
+                document.write(count);
+                count++;
+            }
+        }
+        document.write("</td>")
+        document.write("</tr>")
+        document.write("</table>")
+    }
+</script>
+    
+</body>
+</html>

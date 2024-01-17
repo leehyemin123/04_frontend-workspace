@@ -1,133 +1,371 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Go Green</title>
-<style>
-  /* 전체 페이지 및 기본 스타일링 */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+‌margin: 0;
+‌padding: 0;
+‌border: 0;
+‌font-size: 100%;
+‌font: inherit;
+‌vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+‌display: block;
+}
+body {
+‌line-height: 1;
+}
+ol, ul {
+‌list-style: none;
+}
+blockquote, q {
+‌quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+‌content: '';
+‌content: none;
+}
+table {
+‌border-collapse: collapse;
+‌border-spacing: 0;
+}
 
-  /* 상단 로고 영역 스타일링 */
-  .header-top {
-    display: flex;
-    justify-content: space-between; /* 양 끝에 요소를 배치 */
-    align-items: center;
-    padding: 10px 20px; /* 상단 영역의 패딩 */
-    background-color: #fff; /* 배경색 설정 */
-  }
+/*여기까지 css rest */
 
-  .header-logo {
-    /* 로고 이미지 스타일링 (왼쪽 상단) */
-  }
+div {
+    margin: 0 auto;
+    --border:1px solid black;
+width: 1000px;}
+#header{height: 100px;}
+#content{height: 500px;}
+#footer{height: 100px;}
+#left{width: 15%;
+height: 100%;
+background-color: aqua;
+display: inline-block;
+}
 
-  .header-title {
-    /* 타이틀 이미지 스타일링 */
-    position: absolute; /* 절대 위치 */
-    left: 50%; /* 왼쪽에서 50%의 위치 */
-    transform: translateX(-50%); /* X축으로 -50% 이동하여 중앙 정렬 */
-    margin: 0; /* 기본 마진 제거 */
-  }
+img{
 
-  /* 네비게이션 바 스타일링 */
-  .navbar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #4CAF50; /* 네비게이션 바 색상 */
-    padding: 10px 0;
-  }
-  .navbar a {
+    width: 100%;
+     height: 100%;
+ }
+ 
+#contents{
+    height :500px;
+ 
+}
+
+#h-1{
+    height: 100%;
+    width: 20%;
+    float: left;
+   
+}
+
+#h-2{
+    height: 100%;
+    width: 60%;
+    float: left;
+
+}
+
+#h-3{
+    height: 100%;
+    width: 20%;
+    float: left;
+   
+}
+
+#c1{
+    padding-top: 5px;
+    height: 100%;
+    width: 15%;
+    float: left;
+
+}
+
+#c2{
+    height: 100%;
+    width: 60%;
+    float: left;
+   
+}
+
+#c3{
+    height: 100%;
+    width: 25%;
+    float: left;
+   
+}
+
+/*네이게이션 바 재 구성 */
+
+#navigator{
+    height: 30px;
+    width: 100%;
+   
+}
+
+#menu{
+    margin: 0%;
+    padding: 0%;
+    height: 100%;
+    overflow: hidden;
+    /*영역밖으로 나간 컨텐츠가 보이지 않게 하는것 */
+}
+#menu li{
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    list-style-type: none;
+    float: left;
+    line-height: 30px;
+    background-color: rgb(100, 173, 21, 8.7);
+    
+}
+a{text-decoration: none;
+}
+li a:link{
     color: white;
-    text-decoration: none;
-    padding: 8px 16px;
-  }
-  .navbar a:hover {
-    background-color: #ddd;
-    color: black;
-  }
+}
+li a:visited{
+    color:white;
+}
 
- /* 로그인폼 */
-     #login_form{width: 100%; height: 30%;}
-        #login_form>*{width: 100%;}
-        #login_form_input{height: 80%;}
-        #login_form_etc{height: 20%; text-align: center;}
+/*link시 색상변하는것 없앰 */
 
-        #login_form_input>*{height: 100%; float: left;}
-        #login_input_id_pwd{width: 65%;}
-        #login_input_btn{width: 35%;}
+#c3>div{
+    margin-top: 10px;
+    margin-bottom: 10px;   
+    width: 100%;}
 
-        #login_form_etc>a{
-            text-decoration: none;
-            color: rgb(58,58,58);
-            font-size: 12px;
-            margin: 10px;
-            vertical-align: middle;
-        }
+#log-header{
+    height: 60px;
+    width: 250px;
+    
+}
 
-        #login_input_id_pwd>input{width: 100%; height: 50%; box-sizing: border-box;}
-        #login_input_btn>input{width: 100%; height: 100%;}
+#idpw{
+    height: 100%;
+    width: 70%;
+    float: left;
+  
+}
+#buttom{
+    height: 100%;
+    width: 30%;
+    float:left;
+   
+
+}
+#id{
+    width:100%;
+    height: 50%;
+
+}
+#pw{
+    width:100%;
+    height: 50%;
+   
+}
+
+.login{
+    width:95%;
+    height: 75%;
+}
+
+[type=submit]
+{   width: 100%;
+    height: 100%;
+}
+#log-footer{
+    width: 100%;
+    height: 100%;
+    text-align : center;
+}
+
+#footer{
+    background-color: white;
+}
+#con-login{
+    height: 15%;
+}
+
+#con-center{
+    height: 50%;
+}
+#con-bottom{
+    height:25%
+}
+
+#c2_top{
+    width: 100%;
+    height: 50%;
+}
+
+#c2_bottom{
+    width: 100%;
+    height: 50%;
+}
+.c2_right{
+    width:50%;
+    height: 100%;
+    float: left;
+    align-content: center;
+    text-align: center;
+}
+.c2_left{
+    width:50%;
+    height: 100%;
+    float: left;
+    align-content: center;
+    text-align: center;
+}
+
+.c2img{
+    width: 97%;
+    height: 90%;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+/*텍스트의 모든 것을 같이 넣음 */
+.imgbottomtext{
+    float: left;
+    width: 100%;
+}
 
 
-</style>
+    </style>
 </head>
 <body>
 
-<div class="header-top">
-  <img src="image/logo.jpg" alt="Green" class="header-logo">
-  <!-- 타이틀 이미지는 절대 위치를 사용해 중앙에 배치합니다 -->
-  <img src="image/mainlogo.jpg" alt="Go Green" class="header-title">
-</div>
+    <div>
 
-<div class="navbar">
-    <a href="#home">Home</a>
-    <a href="#profile">Profile</a>
-    <a href="#board">Board</a>
-    <a href="#contact">Contact</a>
-</div>
-
-<div id="content_3">
-        
-    <!-- 로그인폼 전체 감싸는 div-->
-    <div id="login_form">
-       
-        <!--2_1. 입력받아 요청할 수 있는 form-->
-        <form action="#" id="login_form_input">
-            <!-- 3_1. ID/PWD 텍스트 상자가 들어갈 div-->
-            <div id="login_input_id_pwd">
-                <input type="text" name="userId" placeholder="아이디를 입력해주세요">
-                <input type="password" name="password" placeholder="비밀번호를 입력해주세요">
+        <div id="header">
+            <div id="h-1">
+                <img src="image/logo.jpg" alt="">
             </div>
-
-
-            <!-- 3_2. 로그인 버튼이 들어갈 div-->
-            <div id="login_input_btn">
-                <input type="submit" value="로그인">
+            <div id="h-2">
+                <img src="image/mainlogo.jpg" alt="">
             </div>
-            
-        </form>
-
-        <!-- 2_2. 회원가입, ID ,PWD 찾기 링크 영역-->
-        <div id="login_form_etc">
-            <a href="#">회원가입</a>
-            <a href="#">ID/PWD 찾기</a>
-
+            <div id="h-3">
+                
+            </div>
         </div>
+        <div id="navigator">
+            <ol id="menu">
+                <li><a href="">Home</a></li>
+                <li><a href="">Profile</a></li>
+                <li><a href="">Board</a></li>
+                <li><a href="">Contact</a></li>
+
+            </ol>
+        
+        
+        </div>
+        <div id="contents">
+            <div id="c1">
+               <center> <img src="image/left_img.jpg"></center>
+        
+            </div>
+            <div id="c2">
+
+                <div id="c2_top">
+                    <div class="c2_right"> 
+                        <img src="image/main_img1.jpg" class="c2img" alt="">
+                        <div class="imgbottomtext">
+                      나무를 심는 사람들</div>
+                    </div> 
+                    <div class="c2_left">
+                        <img src="image/main_img1.jpg" class="c2img"alt="">
+                        <div class="imgbottomtext"> 
+                        아이들에게 녹색 미래를</div> 
+                    </div>
+                </div>
+               
+                <div id="c2_bottom">
+                    <div class="c2_right">
+                        <img src="image/main_img1.jpg" class="c2img"  alt="">
+                        <div class="imgbottomtext"> 
+                            설악산을 살리는 길</div> 
+                    </div>
+                    <div class="c2_left">
+                        <img src="image/main_img4.jpg" class="c2img"  alt="">
+                        <div class="imgbottomtext"> 
+                        사라지는 북금곰들 </div> 
+                    </div>
+
+                </div>
+           
+                
+            </div>
+            <div id="c3">
+        
+                <div id="con-login">
+                    <div id="log-header">
+                    <div id="idpw">
+                        <div id="id">
+                           <input type="text" class="login" name="user-id" placeholder="아이디를 입력하세요">
+                            
+                            
+                        </div>
+                        <div id="pw">
+                            <input type="password" class="login" name="user-pw" placeholder="비밀번호를 입력하세요">
+                            
+        
+                        </div>
+                    </div>
+                    <div id="buttom">
+                        <input type="submit" value="로그인">
+        
+                    </div>
+                </div>
+                    <div id="log-footer" >
+                        
+                           <a href="">회원가입</a>  
+                            <a href="">ID/PW찾기</a> 
+                        
+                    </div>
+                </div>
+                <div id="con-center">
+                    <img src="image/right_img.jpg" alt="" width="100%">
+                </div>
+                
+                <div id="con-bottom"><img src="image/me_chat.jpg" width="100%">
+                </div>
+        
+               
+            </div>
+        </div>
+        <div id="footer">
+            <img src="image/footer.JPG"alt="">
+        </div>
+        
+        </div>
+
+    <div>
+
     
-    </div>
-
-</div>
-
-
-
-
-
-
-
 </body>
 </html>
