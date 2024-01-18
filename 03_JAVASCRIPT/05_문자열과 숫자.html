@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            width: 300px;
+            border: 1px solid black;
+        }
+
+        .small{height: 200px;}
+        .big{height: 450px;}
+
+    </style>
+</head>
+<body>
+
+    <h1>문자열과 숫자</h1>
+
+    <h3>* 문자열 관련 기본 메소드</h3>
+    <button onclick="stringTest();">문자열처리메소드</button>
+
+    <div id="area1" class="area big"></div>
+
+    <script>
+        function stringTest(){
+            const area1 = document.getElementById("area1"); // div 요소객체 
+
+            const str1 = "Hello World";
+
+            area1.innerHTML = "str1 :" + str1 + "<br>";
+
+            area1.innerHTML += "toUpperCase() : " + str1.toUpperCase() + "<br>";
+            area1.innerHTML += "toLowerCase() : " + str1.toLowerCase() + "<br>";
+            area1.innerHTML += "문자열의 길이 : " + str1.length + "<br>";
+
+            for(let i=0; i<str1.length; i++){
+                area1.innerHTML += i + "번째 인덱스 : " + str1.charAt(i) + "<br>";
+            }
+
+            area1.innerHTML += "앞에서 부터 첫 l의 위치 : " + str1.indexOf("l") + "<br>";
+            area1.innerHTML += "뒤에서 부터 첫 l의 위치 : " + str1.lastIndexOf("l") + "<br>";
+            area1.innerHTML += "앞에서 부터 첫 a의 위치 : " + str1.indexOf("a") + "<br>";
+            // 해당 문자가 존재하지 않을 경우 -1 반환 
+
+            area1.innerHTML += "substring(시작인덱스) : " + str1.substring(6) + "<br>"; // 시작인덱스 ~ 끝인덱스
+            area1.innerHTML += "substring(시작인덱스, 끝인덱스) : " + str1.substring(0,2); + "<br>"; // 시작인덱스 ~ 끝 인덱스 전
+
+            const str2 = "사과,바나나,복숭아,키위";
+            const fruits = str2.split(",") // ["사과","바나나","복숭아","키위"]
+
+            area1.innerHTML += "fruits : " + fruits + "<br>"; // 배열은 컴마로 구분해서 찍어져 나온다.
+            area1.innerHTML += "fruits의 자료형 : " + typeof(fruits) + "<br>";
+
+            console.log(fruits);
+
+        }
+    </script>
+    
+</body>
+</html>
