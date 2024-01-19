@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <fieldset>
+        <legend>보기</legend>
+        <label id="la1">사과,바나나,당근</label> <br>
+        <label id="la2">김밥,치즈,떡볶이,햄버거</label><br>
+        <label id="la3">환타,사이다,콜라</label><br>
+        <label id="la4">고양이,강아지</label> <br>
+    </fieldset>
+    <br>
+
+    <input type="text" name="" id="enter" placeholder="찾을 문자열을 입력하세요" size="100"><br>
+    <button onclick="test1()">전송 및 처리</button>
+    <script>
+        function test1(){
+
+            var fruit = document.getElementById("la1").innerHTML.split(",");
+            var food = document.getElementById("la2").innerHTML.split(",");
+            var drink = document.getElementById("la3").innerHTML.split(",");
+            var animal = document.getElementById("la4").innerHTML.split(",");
+
+            var arr = fruit.concat(food,drink,animal);
+            console.log(arr);
+
+            var enter = document.getElementById("enter").value;
+            var index = arr.indexOf(enter);
+
+            if(index >=0){
+                alert(enter + "는 배열 index" + index + "번째에 존재합니다.");    
+        }else {
+            alert("존재하지 않습니다.")
+        }
+    }
+
+
+    </script>
+   
+    
+    
+</body>
+</html>
