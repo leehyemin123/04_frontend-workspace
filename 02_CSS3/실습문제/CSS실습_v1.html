@@ -5,96 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-‌margin: 0;
-‌padding: 0;
-‌border: 0;
-‌font-size: 100%;
-‌font: inherit;
-‌vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-‌display: block;
-}
-body {
-‌line-height: 1;
-}
-ol, ul {
-‌list-style: none;
-}
-blockquote, q {
-‌quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-‌content: '';
-‌content: none;
-}
-table {
-‌border-collapse: collapse;
-‌border-spacing: 0;
-}
-
-/*여기까지 css rest */
-
 div {
-    margin: 0 auto;
-    --border:1px solid black;
+    margin: 0 auto;/*가운데 정렬을 해준다*/
 width: 1000px;}
 #header{height: 100px;}
-#content{height: 500px;}
 #footer{height: 100px;}
-#left{width: 15%;
-height: 100%;
-background-color: aqua;
-display: inline-block;
-}
-
-img{
-
-    width: 100%;
-     height: 100%;
- }
- 
 #contents{
     height :500px;
- 
+    background-color: white;
 }
+/*여기까지는 각각의 부모 태그의 크기 지정이다 */
 
 #h-1{
     height: 100%;
     width: 20%;
     float: left;
-   
 }
 
 #h-2{
     height: 100%;
     width: 60%;
     float: left;
-
 }
 
 #h-3{
     height: 100%;
     width: 20%;
     float: left;
-   
 }
+/*header의 자식태그에 대략적인 크기 지정과
+ block태그라서 다음줄로 내려가지 않도록 float속성을 지정하였다*/
 
 #c1{
     padding-top: 5px;
@@ -118,46 +58,48 @@ img{
    
 }
 
-/*네이게이션 바 재 구성 */
+/*contents의 자식태그에 대략적인 크기 지정과
+ block태그라서 다음줄로 내려가지 않도록 float속성을 지정하였다*/
 
 #navigator{
     height: 30px;
-    width: 100%;
-   
+    width: 100%;   
 }
-
-#menu{
-    margin: 0%;
-    padding: 0%;
-    height: 100%;
-    overflow: hidden;
-    /*영역밖으로 나간 컨텐츠가 보이지 않게 하는것 */
-}
-#menu li{
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    list-style-type: none;
+/*네비게이션바를 4개로 정확하게 나누어 메뉴를 입력하기 위해 크기를 지정했다*/
+/*4개의 네비게이션바의 자식 태그의 id를 동일하게 하여 가운데 정렬로 메뉴를 보이도록 했따*/
+#nav1{
+    width:25%;
     float: left;
-    line-height: 30px;
-    background-color: rgb(100, 173, 21, 8.7);
-    
-}
-a{text-decoration: none;
-}
-li a:link{
+    text-align: center;
     color: white;
+    padding-top: 4px;
 }
-li a:visited{
-    color:white;
+#header img{
+    width: 100%;
+    height: 100%;
+ 
 }
+/*헤더에 있는 이미지들은의 크기*/
 
-/*link시 색상변하는것 없앰 */
+#c1 img{
+
+   width: 100%;
+
+}
+/*c1에 있는 이미지들의 크기*/
+
+#c2 img{
+    width: 100%;
+    height: 100%;
+ 
+}
+/*c2에 있는 이미지들의 크기*/
 
 #c3>div{
-    margin-top: 10px;
-    margin-bottom: 10px;   
-    width: 100%;}
+ margin-top: 10px;
+ margin-bottom: 10px;
+height: 80px;
+width: 100%;}
 
 #log-header{
     height: 60px;
@@ -175,9 +117,9 @@ li a:visited{
     height: 100%;
     width: 30%;
     float:left;
-   
-
+  
 }
+
 #id{
     width:100%;
     height: 50%;
@@ -198,62 +140,39 @@ li a:visited{
 {   width: 100%;
     height: 100%;
 }
+/*버튼이 꽉차게 만들었다*/
+
 #log-footer{
     width: 100%;
     height: 100%;
     text-align : center;
 }
 
-#footer{
-    background-color: white;
-}
-#con-login{
-    height: 15%;
-}
-
-#con-center{
-    height: 50%;
-}
-#con-bottom{
-    height:25%
-}
-
-#c2_top{
+#footer>img{
     width: 100%;
-    height: 50%;
-}
-
-#c2_bottom{
-    width: 100%;
-    height: 50%;
-}
-.c2_right{
-    width:50%;
     height: 100%;
-    float: left;
-    align-content: center;
-    text-align: center;
-}
-.c2_left{
-    width:50%;
-    height: 100%;
-    float: left;
-    align-content: center;
-    text-align: center;
 }
 
-.c2img{
-    width: 97%;
-    height: 90%;
-    margin-top: 5px;
-    margin-bottom: 0px;
-}
+/* 네비게이션 바 스타일링 */
+#navigator {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                background-color: #4CAF50; /* 네비게이션 바 색상 */
+                padding: 10px 0;
+            }
+            #navigator a {
+                color: white;
+                text-decoration: none;
+                padding: 8px 16px;
+            }
+            #navigator a:hover {
+                background-color: #ddd;
+                color: black;
+            }
 
-/*텍스트의 모든 것을 같이 넣음 */
-.imgbottomtext{
-    float: left;
-    width: 100%;
-}
+
+
 
 
     </style>
@@ -261,7 +180,6 @@ li a:visited{
 <body>
 
     <div>
-
         <div id="header">
             <div id="h-1">
                 <img src="image/logo.jpg" alt="">
@@ -274,15 +192,11 @@ li a:visited{
             </div>
         </div>
         <div id="navigator">
-            <ol id="menu">
-                <li><a href="">Home</a></li>
-                <li><a href="">Profile</a></li>
-                <li><a href="">Board</a></li>
-                <li><a href="">Contact</a></li>
-
-            </ol>
-        
-        
+            <div id="nav1" class="navItem">Home</div>
+            <div id="nav1" class="navItem">Profile</div>
+            <div id="nav1" class="navItem">Board</div>
+            <div id="nav1" class="navItem">Contact</div>
+        </div>
         </div>
         <div id="contents">
             <div id="c1">
@@ -290,39 +204,38 @@ li a:visited{
         
             </div>
             <div id="c2">
-
-                <div id="c2_top">
-                    <div class="c2_right"> 
-                        <img src="image/main_img1.jpg" class="c2img" alt="">
-                        <div class="imgbottomtext">
-                      나무를 심는 사람들</div>
-                    </div> 
-                    <div class="c2_left">
-                        <img src="image/main_img1.jpg" class="c2img"alt="">
-                        <div class="imgbottomtext"> 
-                        아이들에게 녹색 미래를</div> 
-                    </div>
-                </div>
-               
-                <div id="c2_bottom">
-                    <div class="c2_right">
-                        <img src="image/main_img1.jpg" class="c2img"  alt="">
-                        <div class="imgbottomtext"> 
-                            설악산을 살리는 길</div> 
-                    </div>
-                    <div class="c2_left">
-                        <img src="image/main_img4.jpg" class="c2img"  alt="">
-                        <div class="imgbottomtext"> 
-                        사라지는 북금곰들 </div> 
-                    </div>
-
-                </div>
-           
+                <table>
+                    <tr>
+                        <td align="center">
+                            <img src="image/main_img1.jpg" alt="">
+                            <br>
+                            나무를 심는 사람들
+        
+                        </td>
+                        <td align="center">
+                            <img src="image/main_img2.jpg" alt="">
+                            <br>
+                            아이들에게 녹색 미래를
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img src="image/main_img3.jpg" alt="">
+                            <br>
+                            설악산을 살리는 길
+                        </td>
+                        <td align="center">
+                            <img src="image/main_img4.jpg" alt="">
+                            <br>
+                            사라지는 북금곰들 
+                        </td>
+                    </tr>
+                </table>
                 
             </div>
             <div id="c3">
         
-                <div id="con-login">
+                <div>
                     <div id="log-header">
                     <div id="idpw">
                         <div id="id">
@@ -343,19 +256,16 @@ li a:visited{
                 </div>
                     <div id="log-footer" >
                         
-                           <a href="">회원가입</a>  
-                            <a href="">ID/PW찾기</a> 
+                            회원가입 
+                            ID/PW찾기
                         
                     </div>
                 </div>
-                <div id="con-center">
-                    <img src="image/right_img.jpg" alt="" width="100%">
-                </div>
-                
-                <div id="con-bottom"><img src="image/me_chat.jpg" width="100%">
-                </div>
         
-               
+                
+        
+               <img src="image/right_img.jpg" alt="" width="100%"> <br>
+               <img src="image/me_chat.jpg" width="100%">
             </div>
         </div>
         <div id="footer">
@@ -363,9 +273,8 @@ li a:visited{
         </div>
         
         </div>
-
-    <div>
-
+        
+        </body>
     
 </body>
 </html>
