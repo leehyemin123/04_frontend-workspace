@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            border: 1px solid lightgray;
+            padding: 20px;
+        }
+
+        label{
+            color: gray;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="insert.me">
+        * 아이디 : 
+        <input type="text" name="userId" id="userId"> <br>
+        <label for="">첫글자는 반드시 영문자로, 그리고 영문자,숫자 포함하여 총 4~12자로 입력하시오.</label> <br>
+
+        * 비밀번호 : 
+        <input type="password" name="userPwd1" id="userPwd1"> <br>
+        <label for="">영문자, 숫자,특수문자 포함하여 총 8자~15자로 입력하시오.</label> <br>
+
+        * 비밀번호 확인 : 
+        <input type="password" name="userPwd2" id="userPwd2"> <br>
+        <label for="">위의 비밀번호와 일치하게 입력하시오.</label> <br>
+
+        * 이름 :
+        <input type="text" name="userName" id="userName"> <br>
+        <label for="">한글로만 이루어져야되며 2글자 이상으로 입력하시오.</label> <br> 
+
+        * 이메일 : 
+        <input type="text"> <br>
+        <label for="">이메일 형식에 맞춰서 입력하시오.</label> <br><br>
+
+        * 취미 : 
+        <input type="text" name="hobby" id="hobby" placeholder="축구,농구,야구,독서,등"> <br><br>
+
+        * 거주지 :
+
+        <select name="adress" id="adress">
+            <option value="">서울</option>
+            <option>인천</option>
+            <option>부산</option>
+        </select>
+
+        <br><br>
+
+        <input type="submit" value="회원가입" onclick="return vaildate();">
+            <input type="reset" id="reset" value="취소">
+
+
+
+        
+
+
+    </form>
+    
+</body>
+</html>
