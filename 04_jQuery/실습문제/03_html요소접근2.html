@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 접근</title>
+    <style>
+        .area{border: 1px solid black;
+            width: 300px;
+            height: 200px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML 태그에 접근 테스트</h1>
+
+     단, 구매자는 태그 이름으로 접근, 상품명은 아이디로 접근, 구매가격은 name 값으로 접근할것 <br><br>
+
+    <p>구매자: <input type="text" name="rn" placeholder="구매자 이름을 입력하세요."></p> 
+    상품명: <input type="text" id="product" name="mm" placeholder="상품명을 입력하세요."> <br><br>
+    가격 : <input type="text"  name="price" placeholder="가격을 입력하세요."> <br><br>
+
+    <button onclick="accessName();">입력값 출력하기</button>
+
+    <br><br>
+    <div id="area2" class="area" style="background-color: bisque;"></div>
+
+    <script>
+        function accessName() {
+            var buyer = document.getElementsByTagName("p")[0].value;
+            var product = document.getElementById('product').value;
+            var price = document.getElementsByName('price')[0].value;
+
+            var output = "구매자: " + buyer + " <br> 상품명: " + product + "<br> 가격: " + price;
+
+            document.getElementById('area2').innerHTML = output;
+        }
+    </script>
+    
+
+
+</body>
+</html>

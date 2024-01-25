@@ -17,23 +17,23 @@
     </style>
 </head>
 <body>
-
+    <h1><정규표현식을 활용한 회원가입 폼></h1>
     <form action="insert.me">
         * 아이디 : 
         <input type="text" name="userId" id="userId"> <br>
-        <label for="">첫글자는 반드시 영문자로, 그리고 영문자,숫자 포함하여 총 4~12자로 입력하시오.</label> <br>
+        <label for="">첫글자는 반드시 영문자로, 그리고 영문자,숫자 포함하여 총 4~12자로 입력하시오.</label> <br><br>
 
         * 비밀번호 : 
         <input type="password" name="userPwd1" id="userPwd1"> <br>
-        <label for="">영문자, 숫자,특수문자 포함하여 총 8자~15자로 입력하시오.</label> <br>
+        <label for="">영문자, 숫자,특수문자 포함하여 총 8자~15자로 입력하시오.</label> <br><br>
 
         * 비밀번호 확인 : 
         <input type="password" name="userPwd2" id="userPwd2"> <br>
-        <label for="">위의 비밀번호와 일치하게 입력하시오.</label> <br>
+        <label for="">위의 비밀번호와 일치하게 입력하시오.</label> <br><br>
 
         * 이름 :
         <input type="text" name="userName" id="userName"> <br>
-        <label for="">한글로만 이루어져야되며 2글자 이상으로 입력하시오.</label> <br> 
+        <label for="">한글로만 이루어져야되며 2글자 이상으로 입력하시오.</label> <br> <br>
 
         * 이메일 : 
         <input type="text"> <br>
@@ -61,6 +61,56 @@
 
 
     </form>
+
+    <script>
+        function vaildate(){
+            // 아이디, 비번, 비번 일치여부, 이름
+
+            // input 요소 객체들 가져다 놓기 
+            const idInput = document.getElementById("userId");
+            const pwdInput1 = document.getElementById("userPwd1");
+            const pwdInput2 = document.getElementById("userPwd2");
+            const nameInput = document.querySelector("#userName");
+
+            // 1) 아이디 검사
+            //      영소문자, 숫자로만 총 4~12글자로 이루어져야됨
+            //      단, 첫글자는 반드시 영문자로 
+            let regExp = /^[a-z][a-z\d]{3,11}$/;
+            if(!regExp.test(idInput.value)){
+                alert("유효한 아이디를 입력해주세요!");
+                idInput.select();
+                return false;
+            }
+
+            // 2) 비밀번호 검사
+            //     영문자(대소문자), 숫자, 특수문자(!@#$%^&*)로 총 8~15글자로 이뤄져야함
+            regExp = /^[a-z\d!@#$%^&*]{8,15}$/i;
+            if(!regExp.test(pwdInput1.value)){
+                alert("유효한 비밀번호를 입력해주세요!");
+                pwdInput1.value = "";
+                pwdInput1.focus();
+                return false;
+            }
+
+            // 3) 비밀번호 일치여부 
+            if(pwdInput1.value != pwdInput2.value){
+                alert("동일한 비밀번호를 입력해주세요!");
+                pwdInput2.value="";
+                pwdInput2.focus();
+                return false;
+            }
+
+            // 4) 이름 
+            //     한글(결합상태)로만 2글자 이상 
+            regExp = /^[가-힣]{2,}$/;
+            if(!regExp.test(nameInput.value)){
+                alert("유효한 이름을 입력해주세요!");
+                nameInput.select();
+                return false;
+
+            }
+        }
+    </script>
     
 </body>
 </html>

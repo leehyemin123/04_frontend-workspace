@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+     첫번째 값 : <input type="number" id="num1"> <br>
+     두번째 값 : <input type="number" id="num2"> <br>
+ 
+ 
+ 
+     <button onclick="plus();">+</button>
+     <button onclick="minus();">-</button>
+     <button onclick="multi();">x</button>
+     <button onclick="division();">/</button>
+     <button onclick="percent();">%</button>
+
+ 
+     <script>
+         function plus(){
+             // input 요소의 value값은 무조건 String 타입
+             const num1 = document.getElementById("num1").value; // "10"
+             const num2 = document.getElementById("num2").value; // "20"
+ 
+             //const sum = num1 + num2; // "10" + "20" => "1020"
+             const sum = Number(num1) + Number(num2); // 10 + 20 => 30
+             document.getElementById("result").innerHTML = "계산결과 : "+ "<br>" + sum;
+         }
+
+         function minus(){
+             
+             const num1 = document.getElementById("num1").value; 
+             const num2 = document.getElementById("num2").value; 
+ 
+             
+             const minus = Number(num1) - Number(num2); 
+             document.getElementById("result").innerHTML = "계산결과 : " + "<br>" + minus;
+         }
+
+         function multi(){
+             
+             const num1 = document.getElementById("num1").value; 
+             const num2 = document.getElementById("num2").value; 
+ 
+             
+             const multi = Number(num1) * Number(num2); 
+             document.getElementById("result").innerHTML = "계산결과 : " + "<br>" + multi;
+         }
+
+         function division(){
+             
+             const num1 = document.getElementById("num1").value; 
+             const num2 = document.getElementById("num2").value; 
+ 
+             
+             const division = Number(num1) / Number(num2); 
+             document.getElementById("result").innerHTML = "계산결과 : " + "<br>" + division;
+         }
+
+         function percent(){
+             
+             const num1 = document.getElementById("num1").value; 
+             const num2 = document.getElementById("num2").value; 
+ 
+             
+             const percent = Number(num1) % Number(num2); 
+             document.getElementById("result").innerHTML = "계산결과 : " + "<br>" + percent;
+         }
+
+     </script>
+<br><br>
+<div id="result"></div>
+ 
+</body>
+</html>
+
+
+
+  <!-- 코드 줄여서 작업하진 못함.. -->
