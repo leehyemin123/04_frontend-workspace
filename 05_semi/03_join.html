@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h3>회원가입</h3>
+    <form id="registrationForm">
+        <!-- 여기에 다른 회원가입 필드 추가 -->
+        
+        <!-- 아이디 -->
+
+        <div class="id">
+            <label for="idcheck"></label>
+            <input type="text" id="idcheck" name="idcheck" maxlength="16" class="dev-id" placeholder="아이디">
+           
+
+        </div>
+
+        <!-- 비밀번호 -->
+        <input class="userpw" type="password"placeholder="비밀번호"><br>
+        <!-- 비밀번호확인 -->
+        <input class="userpw" type="password"placeholder="비밀번호확인"><br>
+
+        <!-- 이름 -->
+        <input type="text"placeholder="이름"> <br>
+        <!-- 생년월일 -->
+        <div class="age">
+
+            <input type="text" placeholder="생년월일 8자리">
+
+        </div>
+        <!-- 이메일 -->
+        <div class="field">
+           
+            <input type="email" placeholder="[선택]이메일주소">
+        </div>
+        
+        <div class="field tel-number">
+           
+            
+            
+
+        <!-- 휴대폰 -->
+        <div>
+            <input type="tel" placeholder="전화번호 입력">
+            <input type="button" value="인증번호 받기">
+        </div>
+        <input type="number" placeholder="인증번호를 입력하세요">
+    </div>
+
+
+
+
+        <!-- 전체 동의 체크박스 -->
+        <label>
+            <input type="checkbox" id="allAgree" onclick="toggleTerms()"> 전체약관 동의
+        </label>
+
+        <!-- 약관 섹션, 처음에는 숨겨져 있음 -->
+        <div id="individualTerms" class="hidden">
+            <label>
+                <input type="checkbox" id="termsService" name="termsService"> 서비스 이용약관 동의 (필수) <br>
+            </label>
+            <label>
+                <input type="checkbox" id="privacyPolicy" name="privacyPolicy"> 개인정보 처리방침 동의 (필수) <br>
+            </label>
+            <label>
+                <input type="checkbox" id="marketing" name="marketing"> 마케팅 정보 수신 동의 (선택) <br>
+            </label>
+        </div>
+
+       
+    </form>
+
+    <script>
+        function toggleTerms() {
+            var individualTermsSection = document.getElementById('individualTerms');
+            var isAllAgreeChecked = document.getElementById('allAgree').checked;
+            
+            // 전체 약관 동의 체크 여부에 따라 섹션을 보여주거나 숨김
+            individualTermsSection.style.display = isAllAgreeChecked ? 'block' : 'none';
+            
+            // 전체 약관 동의 체크박스가 선택된 경우 모든 개별 체크박스 선택
+            if (isAllAgreeChecked) {
+                document.getElementById('termsService').checked = true;
+                document.getElementById('privacyPolicy').checked = true;
+                document.getElementById('marketing').checked = true;
+            } else {
+                // 전체 약관 동의 체크박스가 해제된 경우 모든 개별 체크박스 선택 해제
+                document.getElementById('termsService').checked = false;
+                document.getElementById('privacyPolicy').checked = false;
+                document.getElementById('marketing').checked = false;
+            }
+        }
+    </script>
+<a href="03-1_join.html">
+<input type="submit" value="회원가입"></a>
+
+</body>
+</html>
