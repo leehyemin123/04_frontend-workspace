@@ -3,31 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마이페이지</title>
+    <title>카테고리 메뉴</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .category-menu {
+    position: relative; /* 하위 요소를 상대적으로 위치시키기 위함 */
+}
+
+.category-button {
+    /* 버튼 스타일 */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.category-list {
+    display: none; /* 기본적으로 카테고리 목록을 숨김 */
+    position: absolute;
+    top: 100%; /* 버튼 바로 아래에 위치 */
+    left: 0;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.category-button:hover + .category-list,
+.category-list:hover {
+    display: block; /* 버튼이나 카테고리 목록에 마우스를 올리면 목록 표시 */
+}
+
+.category-list a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #ccc;
+}
+
+.category-list a:last-child {
+    border-bottom: none; /* 마지막 항목의 하단 테두리 제거 */
+}
+
+.category-list a:hover {
+    background-color: #f2f2f2; /* 호버 시 배경색 변경 */
+}
+    </style>
 </head>
 <body>
-    <div class="mypage-container">
-        <h3>마이페이지</h3>
-        <div class="user-info">
-            <div class="info-field">
-                <label for="name">이름</label>
-                <input type="text" id="name" value="홍길동" readonly>
-            </div>
-            <div class="info-field">
-                <label for="userid">아이디</label>
-                <input type="text" id="userid" value="abcd" readonly>
-            </div>
-            <div class="info-field">
-                <label for="email">이메일</label>
-                <input type="email" id="email" value="user@example.com">
-            </div>
-            <!-- 여기에 추가 정보 필드를 계속 추가할 수 있습니다. -->
-        </div>
-        <div class="actions">
-            <input type="button" value="정보 수정">
-            <input type="button" value="비밀번호 변경">
-            <!-- 기타 액션 버튼 추가 -->
+    <div class="category-menu">
+        <button class="category-button">카테고리</button>
+        <div class="category-list hidden">
+            <!-- 카테고리 목록 -->
+            <a href="#">여성 의류</a>
+            <a href="#">남성 의류</a>
+            <a href="#">생활/주방</a>
+            <a href="#">가전제품</a>
+            <a href="#">가구/인테리어</a>
+            <a href="#">가방/지갑</a>
+            <a href="#">패션 악세사리</a>
+            <a href="#">디지털</a>
+            <a href="#">무료나눔</a>
+            <a href="#">재능</a>
+            <!-- 더 많은 카테고리 항목들 -->
         </div>
     </div>
 </body>
