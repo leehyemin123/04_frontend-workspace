@@ -1,108 +1,250 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입 페이지</title>
-    <style>
-        .hidden {
-            display: none;
+<meta charset="UTF-8">
+<title>회원가입 폼</title>
+<style>
+  /* 여기에 CSS 스타일을 추가하세요. 예를 들어, 폼 필드 간격, 폰트 크기 등을 조정할 수 있습니다. */
+  body {
+    font-family: 'Arial', sans-serif; /* 필요에 따라 폰트를 변경하세요 */
+    
+  }
+  .container {
+    width: 300px; /* 컨테이너의 너비를 조정하세요 */
+    margin: 0 auto;
+  }
+  .form-group {
+    margin-bottom: 3px; /* 필드 간격을 조정하세요 */
+  }
+  label {
+    display: block;
+    /* margin-bottom: 5px; 라벨과 필드 간격을 조정하세요 */
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 8px; /* 필드의 패딩을 조정하세요 */
+    margin-bottom: 10px; /* 필드 간격을 조정하세요 */
+    border: 1px solid #ccc; /* 테두리 스타일을 조정하세요 */
+    border-radius: 4px; /* 테두리 둥근 정도를 조정하세요 */
+  }
+ 
+  .checkbox-group input {
+    margin-right: 5px; /* 체크박스와 텍스트 간격을 조정하세요 */
+    
+  }
+  button {
+    /* width: 100%; */
+    padding: 10px; 버튼의 패딩을 조정하세요
+    /* background-color: #5cb85c; 버튼 색상을 조정하세요 */
+    color: white;
+    border: none;
+    border-radius: 4px; /* 테두리 둥근 정도를 조정하세요 */
+    cursor: pointer;
+  }
+  
+  .terms-container {
+    margin: 10px 0;
+  }
+
+  .terms-container details {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .terms-container details[open] {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .terms-container summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .terms-container summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .view-content-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: inherit;
+    padding: 0;
+    /* margin-left: auto; */
+  }
+
+  .checkbox-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 양쪽 정렬 */
+  margin-bottom: 5px; /* 체크박스 간격 조절 */
+}
+
+  .checkbox-group input {
+    margin-right: 5px;
+  }
+
+  .checkbox-group label {
+  flex: 1; /* 라벨이 남은 공간을 모두 차지하도록 함 */
+  white-space: nowrap; /* 텍스트를 한 줄로 유지 */
+}
+#userId {
+  margin-top: 100px; /* 원하는 공백의 크기로 조정하세요 */
+}
+.input-group {
+  display: flex;
+  justify-content: space-between; /* 항목 사이 공간을 균등하게 분배 */
+  align-items: center; /* 항목들을 세로선상에서 중앙으로 정렬 */
+  width: 100%; /* 컨테이너의 너비를 100%로 설정 */
+}
+.input-group input[type="tel"] {
+  flex-grow: 1; /* 입력 필드가 가능한 공간을 모두 차지하도록 함 */
+  border-radius: 4px 0 0 4px; /* 왼쪽 모서리에만 둥근 처리 */
+}
+
+
+input[type="tel"] {
+  flex-grow: 1;
+  border: 1px solid #ccc; /* 테두리 스타일 */
+  padding: 10px; /* 내부 여백 */
+  border-radius: 4px 0 0 4px; /* 왼쪽 모서리에만 둥근 테두리 적용 */
+  margin-right: -1px; /* 버튼과 겹치게 하여 테두리가 중복되지 않도록 함 */
+}
+#getVerifyCode {
+  padding: 8.9px; /* 버튼 내부 여백 */
+  border: 1px solid #ccc; /* 테두리 스타일 */
+  border-radius: 0 4px 4px 0; /* 오른쪽 모서리에만 둥근 테두리 적용 */
+  background-color: #f9f9f9; /* 버튼 배경색, 필요에 따라 조정 */
+  /* 필요하다면 마우스 오버했을 때의 스타일도 추가 */
+}
+
+.checkbox-area {
+    display: flex;
+    width: 70%;
+}
+
+  
+</style>
+<script>
+    window.onload = function() {
+      document.getElementById('agreeAll').onclick = function() {
+        var subAgrees = document.getElementsByClassName('sub-agree');
+        for(var i = 0; i < subAgrees.length; i++) {
+          subAgrees[i].checked = this.checked;
         }
-    </style>
+      }
+    }
+  </script>
 </head>
 <body>
-    <h3>회원가입</h3>
-    <form id="registrationForm">
-        <!-- 여기에 다른 회원가입 필드 추가 -->
-        
-        <!-- 아이디 -->
 
-        <div class="id">
-            <label for="idcheck"></label>
-            <input type="text" id="idcheck" name="idcheck" maxlength="16" class="dev-id" placeholder="아이디">
-           
-
-        </div>
-
-        <!-- 비밀번호 -->
-        <input class="userpw" type="password"placeholder="비밀번호"><br>
-        <!-- 비밀번호확인 -->
-        <input class="userpw" type="password"placeholder="비밀번호확인"><br>
-
-        <!-- 이름 -->
-        <input type="text"placeholder="이름"> <br>
-        <!-- 생년월일 -->
-        <div class="age">
-
-            <input type="text" placeholder="생년월일 8자리">
-
-        </div>
-        <!-- 이메일 -->
-        <div class="field">
-           
-            <input type="email" placeholder="[선택]이메일주소">
-        </div>
-        
-        <div class="field tel-number">
-           
-            
-            
-
-        <!-- 휴대폰 -->
-        <div>
-            <input type="tel" placeholder="전화번호 입력">
-            <input type="button" value="인증번호 받기">
-        </div>
-        <input type="number" placeholder="인증번호를 입력하세요">
+<div class="container">
+  <form>
+    <div class="form-group">
+      <input type="text" id="userId" name="userId" placeholder="아이디" required>
     </div>
-
-
-
-
-        <!-- 전체 동의 체크박스 -->
-        <label>
-            <input type="checkbox" id="allAgree" onclick="toggleTerms()"> 전체약관 동의
-        </label>
-
-        <!-- 약관 섹션, 처음에는 숨겨져 있음 -->
-        <div id="individualTerms" class="hidden">
-            <label>
-                <input type="checkbox" id="termsService" name="termsService"> 서비스 이용약관 동의 (필수) <br>
-            </label>
-            <label>
-                <input type="checkbox" id="privacyPolicy" name="privacyPolicy"> 개인정보 처리방침 동의 (필수) <br>
-            </label>
-            <label>
-                <input type="checkbox" id="marketing" name="marketing"> 마케팅 정보 수신 동의 (선택) <br>
-            </label>
+    
+    <div class="form-group">
+      
+      <input type="password" id="password" name="password" placeholder="비밀번호"required>
+    </div>
+    <div class="form-group">
+      
+      <input type="password" id="password" name="password" placeholder="비밀번호확인"required>
+    </div>
+    
+    <div class="form-group">
+      
+      <input type="text" id="name" name="name" placeholder="이름"required>
+    </div>
+    
+    <div class="form-group">
+      <label for="birthday"></label>
+      <input type="text" id="birthday" name="birthday" placeholder="생년월일 8자리" required>
+    </div>
+    
+    <div class="form-group">
+     
+      <input type="email" id="email" name="email"placeholder="[선택]이메일주소">
+    </div>
+    
+    <div class="form-group">
+        <label for="phone">휴대전화번호</label>
+        <div class="input-group">
+          <input type="tel" id="phone" name="phone" placeholder="휴대전화번호" required>
+          <button type="button" id="getVerifyCode">인증번호받기</button>
         </div>
+      
+    
+    <div class="checkbox-group">
+  <input type="checkbox" id="agreeAll" name="terms_all">
+  <label for="agreeAll">[필수] 인증 약관 전체 동의</label>
+</div>
 
-       
-    </form>
+<div class="terms-container">
+    <!-- 개인정보이용 체크박스 그룹 -->
+    <div class="checkbox-group">
+        <div class="checkbox-area">
+            <input type="checkbox" id="personalInfo1" name="personalInfo" class="sub-agree">
+            <label for="personalInfo1">개인정보이용</label>
+        </div>
+        <button type="button" class="view-content-button" onclick="toggleDetail('personalInfoDetails1')">내용보기 ⅴ</button>
+    </div>
+    <details id="personalInfoDetails1">
+        <summary></summary>
+        <p>개인정보 이용약관 내용...</p>
+    </details>
+    
+    <!-- 통신사 이용약관 체크박스 그룹 -->
+    <div class="checkbox-group">
+        <div class="checkbox-area">
+            <input type="checkbox" id="personalInfo2" name="telecomInfo" class="sub-agree">
+            <label for="personalInfo2">통신사 이용약관</label>
+        </div>
+        <button type="button" class="view-content-button" onclick="toggleDetail('telecomInfoDetails')">내용보기 ⅴ</button>
+    </div>
+    <details id="telecomInfoDetails">
+      <summary></summary>
+      <p>통신사 이용약관 내용...</p>
+    </details>
+    
+    <!-- 쿨거래 개인정보수집 체크박스 그룹 -->
+    <div class="checkbox-group">
+        <div class="checkbox-area">
+            <input type="checkbox" id="personalInfo3" name="tradeInfo" class="sub-agree">
+            <label for="personalInfo3">쿨거래 개인정보수집</label>
+        </div>
+        <button type="button" class="view-content-button" onclick="toggleDetail('tradeInfoDetails')">내용보기 ⅴ</button>
+    </div>
+    <details id="tradeInfoDetails">
+      <summary></summary>
+      <p>쿨거래 개인정보수집 내용...</p>
+    </details>
+  </div>
 
-    <script>
-        function toggleTerms() {
-            var individualTermsSection = document.getElementById('individualTerms');
-            var isAllAgreeChecked = document.getElementById('allAgree').checked;
-            
-            // 전체 약관 동의 체크 여부에 따라 섹션을 보여주거나 숨김
-            individualTermsSection.style.display = isAllAgreeChecked ? 'block' : 'none';
-            
-            // 전체 약관 동의 체크박스가 선택된 경우 모든 개별 체크박스 선택
-            if (isAllAgreeChecked) {
-                document.getElementById('termsService').checked = true;
-                document.getElementById('privacyPolicy').checked = true;
-                document.getElementById('marketing').checked = true;
-            } else {
-                // 전체 약관 동의 체크박스가 해제된 경우 모든 개별 체크박스 선택 해제
-                document.getElementById('termsService').checked = false;
-                document.getElementById('privacyPolicy').checked = false;
-                document.getElementById('marketing').checked = false;
-            }
-        }
-    </script>
-<a href="03-1_join.html">
-<input type="submit" value="회원가입"></a>
+<button type="submit">회원가입</button>
+
+<script>
+    function toggleDetail(id) {
+      var detail = document.getElementById(id);
+      detail.open = !detail.open;
+    }
+  
+    window.onload = function() {
+      document.getElementById('agreeAll').addEventListener('click', function(event) {
+        var subAgrees = document.querySelectorAll('.sub-agree');
+        subAgrees.forEach((checkbox) => {
+          checkbox.checked = event.target.checked;
+        });
+      });
+    };
+  </script>
 
 </body>
 </html>
