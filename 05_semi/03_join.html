@@ -4,43 +4,39 @@
 <meta charset="UTF-8">
 <title>회원가입 폼</title>
 <style>
-  /* 여기에 CSS 스타일을 추가하세요. 예를 들어, 폼 필드 간격, 폰트 크기 등을 조정할 수 있습니다. */
-  body {
-    font-family: 'Arial', sans-serif; /* 필요에 따라 폰트를 변경하세요 */
-    
-  }
+ 
+
   .container {
-    width: 300px; /* 컨테이너의 너비를 조정하세요 */
+    width: 300px; /* 컨테이너의 너비 */
     margin: 0 auto;
   }
   .form-group {
-    margin-bottom: 3px; /* 필드 간격을 조정하세요 */
+    margin-bottom: 3px; /* 필드 간격 */
   }
   label {
     display: block;
-    /* margin-bottom: 5px; 라벨과 필드 간격을 조정하세요 */
+    /* margin-bottom: 5px; 라벨과 필드 간격 */
   }
   input[type="text"],
-  input[type="email"],
-  input[type="password"] {
+  input[type="password"],
+  input[type="tei"] {
     width: 100%;
-    padding: 8px; /* 필드의 패딩을 조정하세요 */
-    margin-bottom: 10px; /* 필드 간격을 조정하세요 */
-    border: 1px solid #ccc; /* 테두리 스타일을 조정하세요 */
-    border-radius: 4px; /* 테두리 둥근 정도를 조정하세요 */
+    padding: 10px; /* 필드의 패딩 */
+    margin-bottom: 10px; /* 필드 간격 */
+    border: 1px solid #ccc; /* 테두리 스타일 */
+    border-radius: 4px; /* 테두리 둥근 정도 */
   }
  
   .checkbox-group input {
-    margin-right: 5px; /* 체크박스와 텍스트 간격을 조정하세요 */
+    margin-right: 5px; /* 체크박스와 텍스트 간격 */
     
   }
   button {
     /* width: 100%; */
-    padding: 10px; 버튼의 패딩을 조정하세요
-    /* background-color: #5cb85c; 버튼 색상을 조정하세요 */
-    color: white;
+    padding: 10px ; 
+    color: black;
     border: none;
-    border-radius: 4px; /* 테두리 둥근 정도를 조정하세요 */
+    border-radius: 4px; /* 테두리 둥근 정도 */
     cursor: pointer;
   }
   
@@ -75,60 +71,85 @@
     border: none;
     color: black;
     font-size: inherit;
-    padding: 0;
-    /* margin-left: auto; */
+    padding: 0px;
+    margin-left: 5px;
+
   }
 
-  .checkbox-group {
+ .checkbox-group {
   display: flex;
   align-items: center;
   justify-content: space-between; /* 양쪽 정렬 */
   margin-bottom: 5px; /* 체크박스 간격 조절 */
-}
+  
+ }
 
-  .checkbox-group input {
+ .checkbox-group input {
     margin-right: 5px;
-  }
+ }
 
-  .checkbox-group label {
+ .checkbox-group label {
   flex: 1; /* 라벨이 남은 공간을 모두 차지하도록 함 */
   white-space: nowrap; /* 텍스트를 한 줄로 유지 */
-}
-#userId {
+ }
+ #userId {
   margin-top: 100px; /* 원하는 공백의 크기로 조정하세요 */
-}
-.input-group {
+ }
+ .input-group {
   display: flex;
   justify-content: space-between; /* 항목 사이 공간을 균등하게 분배 */
   align-items: center; /* 항목들을 세로선상에서 중앙으로 정렬 */
   width: 100%; /* 컨테이너의 너비를 100%로 설정 */
-}
-.input-group input[type="tel"] {
+ }
+ .input-group input[type="tel"] {
   flex-grow: 1; /* 입력 필드가 가능한 공간을 모두 차지하도록 함 */
   border-radius: 4px 0 0 4px; /* 왼쪽 모서리에만 둥근 처리 */
-}
+ }
 
 
-input[type="tel"] {
+ input[type="tel"] {
   flex-grow: 1;
   border: 1px solid #ccc; /* 테두리 스타일 */
-  padding: 10px; /* 내부 여백 */
+  padding: 9px; /* 내부 여백 */
   border-radius: 4px 0 0 4px; /* 왼쪽 모서리에만 둥근 테두리 적용 */
   margin-right: -1px; /* 버튼과 겹치게 하여 테두리가 중복되지 않도록 함 */
-}
-#getVerifyCode {
-  padding: 8.9px; /* 버튼 내부 여백 */
+ }
+ #getVerifyCode {
+  padding: 7.7px; /* 버튼 내부 여백 */
   border: 1px solid #ccc; /* 테두리 스타일 */
+  border-left: none;
   border-radius: 0 4px 4px 0; /* 오른쪽 모서리에만 둥근 테두리 적용 */
   background-color: #f9f9f9; /* 버튼 배경색, 필요에 따라 조정 */
+  margin-bottom: 0px;
+  margin-right: -22px;
   /* 필요하다면 마우스 오버했을 때의 스타일도 추가 */
-}
+ }
 
-.checkbox-area {
+ .checkbox-area {
     display: flex;
     width: 70%;
-}
+ }
 
+ #email{
+  padding: 8px px ;
+ } 
+
+.btn {
+display: block;
+background-color: #04b4fc;
+color: white;
+padding: 12px 20px;
+margin: 1px auto;
+border-radius: 5px;
+border: none;
+cursor: pointer;
+text-decoration: none;
+font-size: 0.9em;
+}
+        
+.btn:hover {
+    background-color: #0056b3;
+}
   
 </style>
 <script>
@@ -165,21 +186,16 @@ input[type="tel"] {
     </div>
     
     <div class="form-group">
-      <label for="birthday"></label>
-      <input type="text" id="birthday" name="birthday" placeholder="생년월일 8자리" required>
+      <input type="text" id="birthday" name="birthday" placeholder="휴대폰번호" required>
     </div>
     
     <div class="form-group">
-     
-      <input type="email" id="email" name="email"placeholder="[선택]이메일주소">
-    </div>
-    
-    <div class="form-group">
-        <label for="phone">휴대전화번호</label>
+      
         <div class="input-group">
-          <input type="tel" id="phone" name="phone" placeholder="휴대전화번호" required>
+          <input type="tel" id="email" name="email" placeholder="이메일 주소" required>
           <button type="button" id="getVerifyCode">인증번호받기</button>
         </div>
+        <br>
       
     
     <div class="checkbox-group">
@@ -187,8 +203,9 @@ input[type="tel"] {
   <label for="agreeAll">[필수] 인증 약관 전체 동의</label>
 </div>
 
-<div class="terms-container">
-    <!-- 개인정보이용 체크박스 그룹 -->
+  <div class="terms-container">
+    
+   <!-- 개인정보이용 체크박스 그룹 -->
     <div class="checkbox-group">
         <div class="checkbox-area">
             <input type="checkbox" id="personalInfo1" name="personalInfo" class="sub-agree">
@@ -200,6 +217,7 @@ input[type="tel"] {
         <summary></summary>
         <p>개인정보 이용약관 내용...</p>
     </details>
+    
     
     <!-- 통신사 이용약관 체크박스 그룹 -->
     <div class="checkbox-group">
@@ -226,9 +244,10 @@ input[type="tel"] {
       <summary></summary>
       <p>쿨거래 개인정보수집 내용...</p>
     </details>
+
   </div>
 
-<button type="submit">회원가입</button>
+<a href="#" class="btn" align="center">회원가입</a>
 
 <script>
     function toggleDetail(id) {

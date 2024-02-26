@@ -1,0 +1,206 @@
+ **사진게시판**
+1. menubar.jsp 로 !! 
+2. views > board에 jsp 파일 만들기 !  
+(썸네일리스트뷰.jsp) 만듬 
+<body>
+	<%@ include file= "../common/menubar.jsp" %>
+
+</body>
+바디탭에 메뉴바를 포함한다는 구문 작성해주기 
+vs code 에서 나머지 코드 작성 
+div 자체가 블락요소이기때문에 한줄씩 차지함 
+display: inline-block; 스타일을 주면 가로로 배치됨 
+다 입력 후 이클립스로 돌아와서 
+
+1.번 작성 
+<div class="menu"><a href="<%= contextPath %>/list.th">사진게시판</a></div>
+
+서블릿 만듬 
+com.kh.board.controller 서블렛 
+섬네일리스트스컨트롤러 생성
+do get에 작성해줌 
+thumbnailListView.jsp 컨시알 눌러서 오타없는지확인
+
+thumbnailListView.jsp 페이지로 가기 ! 
+<% if(loginUser != null) { %>
+        <!-- 로그인 한 회원만 보여지도록 -->
+        <div align="right" style="width: 800px;">
+            <a href="#">글작성버튼</a>
+            <br><br>
+        </div>
+		<% } %>
+작성후 서버 돌려서 확인해보기 
+
+메뉴바에서 사진게시판 눌렀을때 화면 보여야함
+로그인하고 들어갔을때 글작성 버튼보임 
+(로그인 안한 상태에선 안보임 )
+
+ <a href="#" class="btn btn-sm btn-secondary">글작성버튼</a>
+회색 버튼으로 바뀌어잇는걸 볼수있음 
+
+view/ board / jsp 파일만들기 
+thumbnailEnrollForm.jsp
+만들기 
+메뉴바 추가해주기 
+<%@ include file ="../common/menubar.jsp" %>
+
+vs code 들어가서 화면구현
+ <form action="" id="enroll-form" method="post" enctype="multipart/form-data">
+사진이 들어가야하면 무조건 post 타입으로 
+textarea= row 속성은 늘렷다 줄엿다 하는 박스 만들어짐
+loadImg는 자바스크립트 이기 때문에 script 열기 
+
+sql 에서 board 테이블 열어서 확인해보기 ! 
+
+섬네일 리스트 뷰에와서 
+ <a href="<%= contextPath %>/enrollform.th" class="btn btn-sm btn-secondary">글작성버튼</a>
+작성후 서블릿 만들기 
+com.kh.board.controller 
+(ThumbnailEnrollformController)
+jsp 를 끼우는 서블릿임 
+
+서버에서 잘 되는지 확인하기 
+
+ thumbnailEnrollform.jsp 
+에서 chooseFile 작성 하고 
+script 안에 서 function 쓰기 ! 
+
+서버에서 확인해보기 
+사진 등록됨 더블클릭했을때 파일 창활성화됨 
+
+sql 에서 쿼리문 짜기 
+-- 사진게시글 작성요청시 실행할 sql문 
+
+-- insert board
+INSERT
+    INTO BOARD
+    (
+      BOARD_NO
+    , BOARD_TYPE
+    , BOARD_TITLE
+    , BOARD_CONTENT
+    , BOARD_WRITER
+    )
+    VALUES
+    (
+      SEQ_BNO.NEXTVAL
+    , 2
+    , 사용자가입력한제목
+    , 사용자가입력한내용
+    , 로그인한회원번호
+    )
+
+-- INSERT ATTACHMNET 반복적 (넘어온 첨부파일 개수만큼!!)
+INSERT
+    INTO ATTACHMENT
+    (
+      FILE_NO
+    , REF_BNO
+    , ORIGIN_NAME
+    , CHANGE_NAME
+    , FILE_PATH
+    , FILE_LEVEL
+    )
+    VALUES
+    (
+      SEQ_FNO.NEXTVAL
+    , SEQ_BNO.CURRVAL -- 마지막으로 성공적으로 실행된 값이 꽂힘 
+    , 첨부파일원본명
+    , 첨부파일수정명
+    , 저장경로
+    , 대표이미지일경우1|상세이미지일경우2
+    )
+
+이클립스로 돌아와서 
+섬네일인롤폼 에 사진게시판 작성하기 
+액션 과 벨류 값 작성
+폼의 액션을 눌렀기때문에 서블렛으로 . 
+
+서블렛 만들기 
+ThumbnailInsertController
+/insert/th 
+
+한글이 있어서 인코딩 먼저 ! 
+요청한 값이 맞는지 확인하는코드 
+if(ServletFileUpload.isMultipartContent(request)) {
+
+resources 아래에 사진게시판의 파일 관리해줄 폴더만들기 
+thumbnail_upfiles
+
+다시 
+섬네일인서트컨트롤러 .java
+에서 작성해주기 
+
+섬네일 인서트컨트롤러 .java
+
+BoardService() 로 이동해서 public int insertThumbnailBoard 작성해주기 
+
+BoardDao()로 이동 insertThBoard() 작성 
+
+board-mapper.xml 에서 인서트보드 쿼리 가져오기 
+키값이랑 메소드 이름이랑 맞춰주기 (헷갈리지 않게 )
+
+다시 BoardDao()로 이동해서 마져 구문 써주기 
+
+리턴 했기 대문에 다시 서비스로 ! 
+ int result2 = new BoardDao().insertAttachmentList(conn, list);
+작성 
+마지막 반납할땐 
+  return result1 * result2; 곱하면됨 
+
+BoardDao() 로 이동 
+다시서비스 
+다시 인서트컨트롤러 
+
+서버 돌려서 로그인 
+글작성 제목 , 내용 , 대표이미지 한장만 등록하기 눌렀을때 성공적
+메시지 뜨면 db 확인하기 board 테이블 들어갔는지 확인해보고 
+attachment 들어가서 실질적 데이터도 잘 들어갔는지 확인해보기 ! 
+다 잘되면 상세 이미지도 두장, 세장 더 올려보기 ! 
+파일레벨 1, 2 확인해보기....
+
+쿼리부터 짜보기 
+
+ -- 사진게시판 목록 조회용 sql 
+    
+SELECT 
+      BOARD_NO
+    , BOARD_TITLE
+    , COUNT
+ FROM BOARD
+WHERE BOARD_TYPE = 2
+  AND STATUS = 'Y'
+ORDER 
+    BY BOARD_NO DESC
+
+
+썸네일 리스트 뷰 에 작성 
+<a href="<%= contextPath %>/enrollForm.th" class="btn btn-sm btn-secondary">글작성버튼</a>
+    
+다시 쿼리 
+
+컨트롤러 부터 썸네일리스트컨트롤러 작성하기 
+ArrayList<Board> list = new BoardService().selectThumbnailList();
+
+서비스에서selectThumbnailList(); 만들기 
+Dao 에서 selectThumbnailList(); 만들기 
+board-mapper.xml에 작성해논 쿼리 넣기 
+
+타이틀 이미지를 넣을 공간이없음 
+보드.java 에와서 
+private String titleImg;// 대표이미지 경로를 보관할 필드 
+추가적으로 만들 기 db와 일치하지 않아도됨 
+게터 세터도 하나 만들어주기 
+
+dao 작성하기 ... 
+
+
+
+
+
+
+
+
+
+
+
