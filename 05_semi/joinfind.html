@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-          
-         
-          
-          
-          
+      
+       @font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+
+        * {
+          font-family: 'GmarketSansMedium'; 
         }
         
-        .container {
-          padding: 50px;
-          border-radius: 8px;
+        .outer {
           width: 300px;
+          margin-top: 200px;
+          margin: auto;
+          padding: 30%
         }
       
         h2,h5 {
@@ -85,12 +90,13 @@
 </head>
 <body>
 
-<div class="container">
-  <h2>아이디 조회</h2>
+<div class="outer">
+  
+  <h2>아이디 찾기</h2>
   <h5>회원정보에 등록한 이메일로 인증</h5>
   <form>
+   
     <div class="form-group">
-    
       <input type="text" id="name" name="name" required placeholder="이름">
     </div>
     
@@ -105,11 +111,13 @@
         <div class="input-group">
           <input type="email" id="email" name="email" required placeholder="인증번호">
         </div>
-      </div>
+    </div>
 
       <button type="button">제출</button>
       <p style="font-size: 12px; margin: 0;">비밀번호가 기억나지 않는다면? &nbsp; <a href="#" style="font-size: 13px;">비밀번호 찾기</a></p>
-
+    
+    
+</div>
 
    
 

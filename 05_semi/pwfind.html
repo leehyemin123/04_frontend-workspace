@@ -5,18 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-          font-family: 'Arial', sans-serif;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-        }
+       
+       
+       @font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+  
+        font-family: 'GmarketSansMedium'; 
+      }
+
         
-        .container {
-          padding: 50px;
+        
+        .outer {
+          padding: 30%;
+          margin: auto;
           border-radius: 8px; 
           width: 300px;
         }
@@ -46,7 +53,7 @@
           color: white;
           border: none;
           cursor: pointer;
-          margin-top: 15px;
+          margin-top: 1px;
         }
       
         button:hover {
@@ -87,10 +94,11 @@
 </head>
 <body>
 
-<div class="container">
-  <h2>비밀번호 찾기</h2>
-  <h5>비밀번호를 찾고자 하는 아이디를 입력해주세요</h5>
-  <form>
+<div class="outer">
+    <h2>비밀번호 찾기</h2>
+    <h5>비밀번호를 찾고자 하는 아이디를 입력해주세요</h5>
+  
+    <di>
     <div class="form-group">
     
       <input type="text" id="name" name="name" required placeholder="아이디">
@@ -107,11 +115,12 @@
         <div class="input-group">
           <input type="email" id="email" name="email" required placeholder="이메일주소">
         </div>
-      </div>
+    </div>
 
-      <button type="button">제출</button>
-      <p style="font-size: 12px; margin: 0;">아이디가 기억나지 않는다면? &nbsp; <a href="#" style="font-size: 13px;">아이디 찾기</a></p>
+    <button type="button">제출</button>
+    <p style="font-size: 12px; margin: 0;">아이디가 기억나지 않는다면? &nbsp; <a href="#" style="font-size: 13px;">아이디 찾기</a></p>
 
+</div>
 
    
 
